@@ -10,9 +10,11 @@ class TestSplitIntoSections:
         raw = (
             "Some preamble text.\n"
             "BOOK ONE Something Here\n"
-            "Content of book one goes here with many words.\n"
+            "Content of book one goes here with many"
+            " words and enough length to pass.\n"
             "BOOK TWO Another Section\n"
-            "Content of book two goes here with many words too."
+            "Content of book two goes here with many"
+            " words and enough length to pass too."
         )
         docs = split_into_sections(raw)
         assert len(docs) >= 2
