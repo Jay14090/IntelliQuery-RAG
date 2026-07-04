@@ -7,8 +7,8 @@ anonymised question and the entity mapping for later de-anonymisation.
 
 from __future__ import annotations
 
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 
 from intelliquery.prompts.anonymize import ANONYMIZE_TEMPLATE

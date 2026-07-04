@@ -7,8 +7,8 @@ current query — reducing noise before the reasoning step.
 
 from __future__ import annotations
 
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 
 from intelliquery.prompts.distill import DISTILL_TEMPLATE

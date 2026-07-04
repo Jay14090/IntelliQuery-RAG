@@ -8,10 +8,9 @@ integration that handles building, saving, and loading indexes.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
-from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
+from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -73,7 +72,7 @@ class FAISSStoreManager:
         save_path = str(self._persist_dir / index_name)
         store.save_local(save_path)
 
-    def load(self, index_name: str) -> Optional[FAISS]:
+    def load(self, index_name: str) -> FAISS | None:
         """
         Load a previously persisted FAISS index.
 

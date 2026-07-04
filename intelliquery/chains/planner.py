@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from typing import Literal
 
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 
 from intelliquery.prompts.plan import PLAN_TEMPLATE

@@ -13,7 +13,6 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 import yaml
 from dotenv import load_dotenv
@@ -95,9 +94,9 @@ class Settings:
     ui: UISettings = field(default_factory=UISettings)
 
     # API keys (populated from .env)
-    openai_api_key: Optional[str] = None
-    groq_api_key: Optional[str] = None
-    anthropic_api_key: Optional[str] = None
+    openai_api_key: str | None = None
+    groq_api_key: str | None = None
+    anthropic_api_key: str | None = None
 
 
 def _merge_section(dc_instance, yaml_section: dict) -> None:
@@ -131,7 +130,7 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
     # ── YAML layer ──────────────────────────────────────────────────────
     cfg_file = Path(config_path) if config_path else _DEFAULT_CONFIG_PATH
     if cfg_file.is_file():
-        with open(cfg_file, "r", encoding="utf-8") as fh:
+        with open(cfg_file, encoding="utf-8") as fh:
             raw = yaml.safe_load(fh) or {}
 
         _merge_section(settings.llm, raw.get("llm"))

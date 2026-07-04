@@ -27,12 +27,20 @@ desert warriors were a potential military asset he hoped to ally with.
 Question: Why did the Duke accept a posting he knew was dangerous?
 
 Reasoning:
-1. The context says Duke Leto "accepted stewardship of Arrakis despite knowing it was a trap."
-2. His reasoning was that "controlling the spice would give House Atreides enough leverage to survive."
-3. He also saw the Fremen as "a potential military asset he hoped to ally with."
-4. Therefore, his acceptance was a calculated risk — spice control plus a Fremen alliance could offset the danger.
+1. The context says Duke Leto "accepted stewardship of
+Arrakis despite knowing it was a trap."
+2. His reasoning was that "controlling the spice would give
+House Atreides enough leverage to survive."
+3. He also saw the Fremen as "a potential military asset
+he hoped to ally with."
+4. Therefore, his acceptance was a calculated risk — spice
+control plus a Fremen alliance could offset the danger.
 
-Answer: Duke Leto accepted the dangerous posting because he believed controlling Arrakis's spice production would grant his House crucial political leverage, and he intended to forge an alliance with the Fremen to bolster his military strength.
+Answer: Duke Leto accepted the dangerous posting because he
+believed controlling Arrakis's spice production would grant
+his House crucial political leverage, and he intended to
+forge an alliance with the Fremen to bolster his military
+strength.
 
 --- Example B (insufficient context) ---
 
@@ -46,10 +54,13 @@ Question: How many sandworms exist on Arrakis?
 Reasoning:
 1. The context describes sandworms as "colossal creatures" that produce spice.
 2. It mentions they are territorial and react to vibrations.
-3. However, the context provides no population count or estimate.
+3. However, the context provides no population count or
+estimate.
 4. No numerical data about sandworm numbers is available.
 
-Answer: The provided context does not contain information about the total number of sandworms on Arrakis, so this cannot be determined from the available evidence.
+Answer: The provided context does not contain information
+about the total number of sandworms on Arrakis, so this
+cannot be determined from the available evidence.
 
 </few_shot_examples>
 

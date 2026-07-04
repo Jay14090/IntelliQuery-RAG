@@ -11,12 +11,11 @@ from typing import Any
 
 from intelliquery.agents.state import AgentState
 from intelliquery.chains.anonymizer import AnonymizeChain
-from intelliquery.chains.planner import PlanChain
 from intelliquery.chains.distiller import DistillChain
+from intelliquery.chains.planner import PlanChain
 from intelliquery.chains.reasoner import ReasonChain
 from intelliquery.chains.verifier import VerifyChain
 from intelliquery.retrievers.multi_retriever import DocumentRetriever
-
 
 # ─── Factory ─────────────────────────────────────────────────────────────
 # Chains and retriever are injected once at graph-build time and closed

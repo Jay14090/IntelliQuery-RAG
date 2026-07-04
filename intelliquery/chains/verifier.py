@@ -7,8 +7,8 @@ context — inspired by Self-RAG (Asai et al., 2023).
 
 from __future__ import annotations
 
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 
 from intelliquery.prompts.verify import VERIFY_GROUNDING_TEMPLATE

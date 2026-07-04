@@ -18,12 +18,10 @@ Graph topology::
 
 from __future__ import annotations
 
-from typing import Any
-
 from langgraph.graph import END, StateGraph
 
-from intelliquery.agents.state import AgentState
 from intelliquery.agents.nodes import create_node_functions
+from intelliquery.agents.state import AgentState
 from intelliquery.chains import (
     AnonymizeChain,
     DistillChain,
@@ -35,7 +33,6 @@ from intelliquery.config import Settings
 from intelliquery.providers.openai_provider import OpenAILLMProvider
 from intelliquery.retrievers.multi_retriever import DocumentRetriever
 from intelliquery.retrievers.vector_store import FAISSStoreManager
-
 
 # ─── Routing helpers ─────────────────────────────────────────────────────
 

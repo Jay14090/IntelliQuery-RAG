@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Optional
 
 import PyPDF2
 from langchain_core.documents import Document
@@ -42,7 +41,7 @@ def extract_full_text(pdf_path: str | Path) -> str:
 
 def split_into_sections(
     raw_text: str,
-    pattern: Optional[str] = None,
+    pattern: str | None = None,
 ) -> list[Document]:
     """
     Split the full book text into ``Document`` objects, one per section.
@@ -107,7 +106,7 @@ def split_into_sections(
 
 def load_and_split_pdf(
     pdf_path: str | Path,
-    pattern: Optional[str] = None,
+    pattern: str | None = None,
 ) -> list[Document]:
     """
     End-to-end helper: extract text from PDF then split into sections.

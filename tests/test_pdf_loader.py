@@ -26,12 +26,18 @@ class TestSplitIntoSections:
         assert docs[0].metadata["header"] == "Full Text"
 
     def test_custom_pattern(self):
-        raw = "CHAPTER 1 First chapter content here is long enough. CHAPTER 2 Second chapter content here is also long enough."
+        raw = (
+            "CHAPTER 1 First chapter content here is long enough. "
+            "CHAPTER 2 Second chapter content here is also long enough."
+        )
         docs = split_into_sections(raw, pattern=r"(CHAPTER \d+)")
         assert len(docs) >= 2
 
     def test_skips_trivially_short_fragments(self):
-        raw = "BOOK ONE X BOOK TWO Content of book two with enough meaningful text to pass the threshold."
+        raw = (
+            "BOOK ONE X BOOK TWO Content of book two "
+            "with enough meaningful text to pass the threshold."
+        )
         docs = split_into_sections(raw)
         # "X" is too short (< 50 chars), should be skipped
         for doc in docs:

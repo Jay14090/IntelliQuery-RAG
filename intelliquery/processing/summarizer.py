@@ -8,8 +8,8 @@ dedicated vector store for high-level retrieval.
 from __future__ import annotations
 
 from langchain_core.documents import Document
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 
 _SUMMARIZE_TEMPLATE = """\
 <task>

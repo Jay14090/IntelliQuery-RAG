@@ -8,7 +8,8 @@ the original project to avoid any resemblance.
 
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
+
 from typing_extensions import TypedDict
 
 
@@ -41,7 +42,7 @@ class AgentState(TypedDict, total=False):
     unsupported_claims: list[str]        # Claims that failed grounding
 
     # ── Output ───────────────────────────────────────────────────────────
-    final_response: Optional[str]        # Completed answer to return to user
+    final_response: str | None        # Completed answer to return to user
 
     # ── Control ──────────────────────────────────────────────────────────
     iteration_count: int                 # Safety counter for loop cap

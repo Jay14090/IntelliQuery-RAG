@@ -9,17 +9,16 @@ answer similarity.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class EvaluationResult:
     """Container for evaluation metric scores (0.0 – 1.0)."""
-    answer_correctness: Optional[float] = None
-    faithfulness: Optional[float] = None
-    answer_relevancy: Optional[float] = None
-    context_recall: Optional[float] = None
-    answer_similarity: Optional[float] = None
+    answer_correctness: float | None = None
+    faithfulness: float | None = None
+    answer_relevancy: float | None = None
+    context_recall: float | None = None
+    answer_similarity: float | None = None
 
     def summary(self) -> str:
         """Pretty-print the scores."""

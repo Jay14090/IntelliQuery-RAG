@@ -1,7 +1,7 @@
 """Unit tests for graph structure and routing logic."""
 
-from intelliquery.agents.state import AgentState
 from intelliquery.agents.graph import _route_after_task, _should_continue
+from intelliquery.agents.state import AgentState
 
 
 class TestRouteAfterTask:

@@ -135,9 +135,22 @@ button.secondary:hover {
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
-.status-idle { background: rgba(30, 41, 59, 0.8); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); }
-.status-running { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); animation: pulse 2s infinite; }
-.status-done { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
+.status-idle {
+    background: rgba(30, 41, 59, 0.8);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.status-running {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    animation: pulse 2s infinite;
+}
+.status-done {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
 
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4); }
@@ -267,8 +280,8 @@ def _build_ui() -> gr.Blocks:
 
             # Attempt to load and run the agent graph
             try:
-                from intelliquery.config import load_settings
                 from intelliquery.agents.graph import build_agent_graph
+                from intelliquery.config import load_settings
 
                 settings = load_settings()
                 agent = build_agent_graph(settings)
@@ -292,7 +305,12 @@ def _build_ui() -> gr.Blocks:
                 plan_md = "### 📋 Execution Plan\n\n"
                 for step in plan:
                     icon = "🔍" if step.get("action") == "RETRIEVE" else "💭"
-                    plan_md += f"{icon} **Step {step['step']}** [{step['action']}]: {step['description']}\n\n"
+                    action = step['action']
+                    desc = step['description']
+                    plan_md += (
+                        f"{icon} **Step {step['step']}** "
+                        f"[{action}]: {desc}\n\n"
+                    )
 
                 updated_state = {
                     "current_node": "synthesize_response",
@@ -355,7 +373,11 @@ def _build_ui() -> gr.Blocks:
 
         clear_btn.click(
             fn=clear_all,
-            outputs=[question_input, state, graph_display, status_text, answer_output, trace_output, plan_output],
+            outputs=[
+                question_input, state, graph_display,
+                status_text, answer_output,
+                trace_output, plan_output,
+            ],
         )
 
         # ── Footer ──────────────────────────────────────────────────────

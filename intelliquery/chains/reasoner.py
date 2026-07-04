@@ -7,8 +7,8 @@ stating a conclusion — strictly grounded in the provided context.
 
 from __future__ import annotations
 
-from langchain_core.prompts import PromptTemplate
 from langchain_core.language_models import BaseChatModel
+from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 
 from intelliquery.prompts.reason import REASON_COT_TEMPLATE

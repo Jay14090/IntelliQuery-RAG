@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import os
 from fastapi import FastAPI, HTTPException, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from intelliquery.config import load_settings
 from intelliquery.agents.graph import build_agent_graph
+from intelliquery.config import load_settings
 
 app = FastAPI(title="IntelliQuery-RAG API")
 
@@ -55,7 +54,7 @@ def execute_query(req: QueryRequest):
 
     try:
         result = agent.invoke({"query": req.query})
-        
+
         return QueryResponse(
             final_response=result.get("final_response", "_No answer generated._"),
             reasoning_trace=result.get("reasoning_trace", []),
@@ -87,16 +86,22 @@ def execute_query_stream(query: str):
                         data["reasoning_trace"] = state_values["reasoning_trace"]
                     if "final_response" in state_values:
                         data["final_response"] = state_values["final_response"]
-                    
-                    for key in ["active_task_description", "distilled_context", "is_grounded", "unsupported_claims"]:
+
+                    extra_keys = [
+                        "active_task_description",
+                        "distilled_context",
+                        "is_grounded",
+                        "unsupported_claims",
+                    ]
+                    for key in extra_keys:
                         if key in state_values:
                             data[key] = state_values[key]
-                            
+
                     yield f"data: {json.dumps(data)}\n\n"
         except Exception as e:
             import json
             yield f"data: {json.dumps({'type': 'error', 'detail': str(e)})}\n\n"
-            
+
     return StreamingResponse(event_generator(), media_type="text/event-stream")
 
 
