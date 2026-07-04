@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  intelliquery:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    volumes:
+      - ./data:/app/data          # Persist vector stores outside container
+      - ./config.yaml:/app/config.yaml
+    restart: unless-stopped

@@ -1,0 +1,47 @@
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ─── Virtual Environments ───
+.venv/
+venv/
+env/
+
+# ─── IDE ───
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── Secrets ───
+.env
+
+# ─── Vector Store Data ───
+data/*.faiss
+data/*.pkl
+data/*_index/
+
+# ─── Jupyter ───
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ─── OS ───
+.DS_Store
+Thumbs.db
+
+# ─── Testing / Coverage ───
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ─── Misc ───
+*.log
+*.pdf

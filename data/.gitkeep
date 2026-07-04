@@ -1,0 +1,2 @@
+# This directory stores FAISS vector indexes.
+# Run the tutorial notebook to build indexes from your PDF.

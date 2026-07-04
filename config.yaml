@@ -1,0 +1,40 @@
+# IntelliQuery-RAG Configuration
+# ─────────────────────────────────────────────────────
+
+llm:
+  provider: "openai"                # Options: openai (more providers pluggable)
+  model_name: "gpt-4o"
+  temperature: 0.0
+  max_output_tokens: 2048
+  request_timeout: 120
+
+embeddings:
+  provider: "openai"
+  model_name: "text-embedding-3-small"
+
+retriever:
+  chunk_top_k: 2                    # Number of chunk documents to retrieve
+  summary_top_k: 2                  # Number of chapter summaries to retrieve
+  quotes_top_k: 8                   # Number of book quotes to retrieve
+
+processing:
+  chunk_size: 1200                  # Characters per text chunk
+  chunk_overlap: 150                # Overlap between consecutive chunks
+  chapter_split_pattern: "(BOOK\\s\\w+.*?)(?=BOOK\\s\\w+|$)"  # Dune-specific
+
+vector_store:
+  backend: "faiss"                  # Options: faiss
+  persist_directory: "./data"
+  chunks_index: "chunks_index"
+  summaries_index: "summaries_index"
+  quotes_index: "quotes_index"
+
+agent:
+  max_iterations: 10                # Safety cap on planning loop
+  enable_verification: true         # Toggle hallucination checking
+  verbose: true                     # Print step-by-step trace
+
+ui:
+  theme: "soft"
+  server_port: 7860
+  share: false
