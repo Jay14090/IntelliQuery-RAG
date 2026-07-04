@@ -59,9 +59,9 @@ anthropic = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/jay14/IntelliQuery-RAG"
-Repository = "https://github.com/jay14/IntelliQuery-RAG"
-Issues = "https://github.com/jay14/IntelliQuery-RAG/issues"
+Homepage = "https://github.com/Jay14090/IntelliQuery-RAG"
+Repository = "https://github.com/Jay14090/IntelliQuery-RAG"
+Issues = "https://github.com/Jay14090/IntelliQuery-RAG/issues"
 
 [project.scripts]
 intelliquery = "ui.app:main"
