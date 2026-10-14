@@ -59,7 +59,7 @@ Think of it as giving ChatGPT a research assistant's brain and a fact-checker's 
 | 🧠 **Agent Brain** | [LangGraph](https://github.com/langchain-ai/langgraph) | Deterministic state machine — every reasoning step is traceable |
 | 🔗 **LLM Framework** | [LangChain](https://github.com/langchain-ai/langchain) | Structured output, prompt templates, provider abstraction |
 | 🗄️ **Vector Search** | [FAISS](https://github.com/facebookresearch/faiss) | Blazing-fast similarity search across three separate indexes |
-| 🤖 **Default LLM** | [GPT-4o](https://openai.com/index/gpt-4o/) | Swappable — Groq, Anthropic supported via config |
+| 🤖 **Default LLM** | [GPT-5](https://openai.com/gpt-5/) | Swappable — Groq, Anthropic supported via config |
 | 📊 **Evaluation** | [Ragas](https://github.com/explodinggradients/ragas) | Industry-standard RAG metrics (faithfulness, relevancy, recall) |
 | ⚡ **Backend API** | [FastAPI](https://fastapi.tiangolo.com) | Async REST + SSE streaming for real-time graph updates |
 | 🎨 **Frontend** | [React](https://react.dev) + [React Flow](https://reactflow.dev) | Live graph visualization with animated node transitions |
@@ -343,7 +343,7 @@ All settings live in `config.yaml` — zero code changes needed:
 ```yaml
 llm:
   provider: "openai"             # openai | groq | anthropic
-  model_name: "gpt-4o"
+  model_name: "gpt-5"
   temperature: 0.0
 
 embeddings:

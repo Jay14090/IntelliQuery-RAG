@@ -26,7 +26,7 @@ _DEFAULT_CONFIG_PATH = _PROJECT_ROOT / "config.yaml"
 class LLMSettings:
     """Parameters forwarded to the language-model provider."""
     provider: str = "openai"
-    model_name: str = "gpt-4o"
+    model_name: str = "gpt-5"
     temperature: float = 0.0
     max_output_tokens: int = 2048
     request_timeout: int = 120

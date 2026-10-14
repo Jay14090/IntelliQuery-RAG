@@ -12,7 +12,7 @@ import re
 import tiktoken
 
 
-def count_tokens(text: str, model: str = "gpt-4o") -> int:
+def count_tokens(text: str, model: str = "gpt-5") -> int:
     """
     Count the number of tokens ``text`` encodes to under the given model's
     tokenizer.
@@ -29,7 +29,11 @@ def count_tokens(text: str, model: str = "gpt-4o") -> int:
     int
         Token count.
     """
-    encoder = tiktoken.encoding_for_model(model)
+    try:
+        encoder = tiktoken.encoding_for_model(model)
+    except KeyError:
+        # Older tiktoken releases don't know newer model names.
+        encoder = tiktoken.get_encoding("o200k_base")
     return len(encoder.encode(text))
 
 

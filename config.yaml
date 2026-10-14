@@ -3,7 +3,7 @@
 
 llm:
   provider: "openai"                # Options: openai (more providers pluggable)
-  model_name: "gpt-4o"
+  model_name: "gpt-5"
   temperature: 0.0
   max_output_tokens: 2048
   request_timeout: 120
