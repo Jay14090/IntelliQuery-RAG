@@ -15,15 +15,23 @@ from intelliquery.providers.base import LLMProvider
 
 
 class OpenAILLMProvider(LLMProvider):
-    """Concrete provider backed by OpenAI's API (GPT-4o, etc.)."""
+    """Concrete provider backed by OpenAI's API (GPT-5, etc.)."""
 
     def build_chat_model(
         self,
-        model_name: str = "gpt-4o",
+        model_name: str = "gpt-5",
         temperature: float = 0.0,
         max_tokens: int = 2048,
         **kwargs: Any,
     ) -> ChatOpenAI:
+        if model_name.startswith("gpt-5"):
+            # GPT-5 models only accept the default temperature and use
+            # ``max_completion_tokens`` instead of ``max_tokens``.
+            return ChatOpenAI(
+                model=model_name,
+                max_completion_tokens=max_tokens,
+                **kwargs,
+            )
         return ChatOpenAI(
             model=model_name,
             temperature=temperature,
